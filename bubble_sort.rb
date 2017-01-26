@@ -23,8 +23,9 @@ class BubbleSort
         end
         index += 1
         next_index += 1
+      # n = -+ 1
       end
-  #  end
+ #  end
   end
 end
 

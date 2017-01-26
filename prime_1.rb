@@ -5,7 +5,7 @@ def prime?(number)
     elsif number <= 0 || number == 1 || number == 2
         puts "#{number} is not prime"
     else
-        n_new = (number / 2).ceil
+        n_new = (number / 2.0).ceil
         number_of_non_divisibles = []
         counter = 1
         while n_new > 1 
@@ -14,18 +14,17 @@ def prime?(number)
                 n_new = 1
             else 
                 number_of_non_divisibles << n_new
-                # need to continue to check & make sure no % == 0; add all responses to an array?
-                n_new -=1
+                n_new -= 1
                 counter += 1
             end
         end
-            if number_of_non_divisibles.count == counter/(number / 2).ceil
-                puts "#{number} is a prime!"
-            end
+        if number_of_non_divisibles.count == (number / 2)
+            puts "#{number} is a prime!"
+        end
     end
 end
 
-puts prime?(163) # <= "5 is a prime number"
+puts prime?(5) # <= "5 is a prime number"
 
 # pseudocode
 # is the number divisible by anything?
