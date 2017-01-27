@@ -1,8 +1,8 @@
-prime = nil
-def prime?(number)
 
-    if number.class == "Float" || number <= 2
-        puts "#{number} is not prime"
+require "pry"
+def prime?(number)
+    if number.class == "Float" || number <= 1
+        # puts "#{number} is not prime"
         prime = false
     else
         n_new = (number / 2.0).ceil
@@ -10,7 +10,7 @@ def prime?(number)
         counter = 1
         while n_new > 1 
             if number % n_new == 0
-                puts "#{number} is not prime"
+                # puts "#{number} is not prime"
                 n_new = 1
                 prime = false
             else 
@@ -20,35 +20,74 @@ def prime?(number)
             end
         end
         if number_of_non_divisibles.count == (number / 2)
-            puts "#{number} is a prime!"
+            # puts "#{number} is a prime!"
             prime = true
         end
     end
 
 end
 
-puts prime?(5) # <= "5 is a prime number"
+# ### Beth's code! tactic = create a collection of all numbers smaller than that number, check each one
+# def prime?(number)
+#     counter = 0
+#     potential_factors = (2..number/2).to_a
+#     potential_factors.each do |potential_factor|
+#         if number % potential_factor == 0
+#             counter += 1
+#         end
+#     end
+#     if counter == 0
+#         "#{number} is a prime number"
+#     else
+#         "#{number} is NOT a prime number"
+#     end
+# end
 
+puts prime?(13)
+    
+    
+    ## bullshitty stuff to get momentum going:
+    # I've got a number 
+    # a not-prime number will be divisible by numbers than that one or one
+    # create a list (array) of all numbers between 1 and half the number I'm checking
+        # this is a list of potential_factors
+    # go through that list, check whether my number is divisible by that number
+        # number % potential_factor == 0
+        # if the number is divisible by the potential_factor, increment counter
+    # if it is divisible by any of those, it's NOT prime. Otherwise it is.
+        # use a counter
+        # if counter is greater than 0, it's not prime
 
-primes = []
+#     if #something
+#     "#{number} is a prime number"
+#     else
+#     "#{number} is NOT a prime number"
+# end
+
+# puts prime?(5) # <= "5 is a prime number" ## RETURNS LAST VALUE OF METHOD EVALUATED AT ARG
+ 
+
 def find_primes(quantity)
-    x = 3
-    while primes.count < n
+    primes = []
+    x = 2
+    while primes.count < quantity
         prime?(x)
+        binding.pry
         if prime == true
             primes << x
         end
         x += 1
     end
+    "the first #{quantity} prime numbers are #{primes}"
 end
 
-# pseduocode
-# **find n # of the first prime numbers
-# make an empty array to hold prime numbers
-# while primes.count < n
-    # x = 3
-    # if prime?(x) returns prime = true
-        # primes << x
+# # pseduocode
+# # **find n # of the first prime numbers
+# # make an empty array to hold prime numbers
+# # while primes.count < n
+#     # x = 3
+#     # if prime?(x) returns prime = true
+#         # primes << x
 
 
 puts find_primes(5) #<= "the first 5 prime numbers are 2, 3, 5, 7, 11"

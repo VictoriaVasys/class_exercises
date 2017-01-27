@@ -8,27 +8,29 @@
 # 3. continue to progress through vals@indices until comparing val@index(n-2) >? val@index(n-1)
 # 4. go back to the beginning of the loop and repeat steps 1.-3. until each val@index < val@index+1
   
+require "pry"
 
 class BubbleSort
   def sort(collection)
     n = collection.length
-    until n == 1
+    next_index = 0
+    n.times do 
       index = n - n
       next_index = n - n + 1
-      until next_index == n
+      until next_index == collection.length
         if collection[index] > collection[next_index]
-          not_ordered = collection.slice!(next_index)
-          collection.insert(index, not_ordered)
+          unordered_val = collection.slice!(next_index)
+          collection.insert(index,unordered_val)
         end
         index += 1
         next_index += 1
       end
-      n = -+ 1
     end
+    collection
   end
 end
 
 
 sorter = BubbleSort.new
-sorter.sort(["d", "b", "a", "c"])
+puts sorter.sort(["d", "b", "a", "c"])
 # => ["a", "b", "c", "d"]
