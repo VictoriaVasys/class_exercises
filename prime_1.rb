@@ -64,30 +64,3 @@ puts prime?(13)
 #     "#{number} is NOT a prime number"
 # end
 
-# puts prime?(5) # <= "5 is a prime number" ## RETURNS LAST VALUE OF METHOD EVALUATED AT ARG
- 
-
-def find_primes(quantity)
-    primes = []
-    x = 2
-    while primes.count < quantity
-        prime?(x)
-        binding.pry
-        if prime == true
-            primes << x
-        end
-        x += 1
-    end
-    "the first #{quantity} prime numbers are #{primes}"
-end
-
-# # pseduocode
-# # **find n # of the first prime numbers
-# # make an empty array to hold prime numbers
-# # while primes.count < n
-#     # x = 3
-#     # if prime?(x) returns prime = true
-#         # primes << x
-
-
-puts find_primes(5) #<= "the first 5 prime numbers are 2, 3, 5, 7, 11"

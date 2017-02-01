@@ -55,7 +55,7 @@ class Person
   # above is a "getter method"; replaced by attr_reader at the top
 
   def age
-    jday = DateTime.now.jd - @birthdate.jd ### NEEDS WORK
+    jday = DateTime.now.jd - @birthdate.jd ### NEEDS WORK 
     DateTime.jd(jday)
   end
 
